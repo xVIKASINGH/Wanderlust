@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+  <div class="error-container">
+    <h1>Error <%= err.status || 500 %></h1>
+    <p><%= err.message || "Something went wrong" %></p>
+
+
+    <div class="error-actions">
+      <a href="/list" class="go-home-btn">Go to Home</a>
+      <a href="javascript:history.back()" class="go-back-btn">Go Back</a>
+    </div>
+  </div>
+
+  <style>
+    .error-container {
+      text-align: center;
+      margin-top: 5%;
+      font-family: Arial, sans-serif;
+      margin-bottom: 30px;
+    }
+
+    .error-container h1 {
+      font-size: 5rem;
+      color: #ff4d4d;
+    }
+
+    .error-container p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    .error-actions {
+      margin-top: 20px;
+    }
+
+    .error-actions a {
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: 2px solid #ff4d4d;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #ff4d4d;
+      transition: 0.3s;
+    }
+
+    .error-actions a:hover {
+      background-color: #ff4d4d;
+      color: #fff;
+    }
+  </style>
+</body>

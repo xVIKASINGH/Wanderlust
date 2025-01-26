@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') -%> 
+<body class="bg-gray-100">
+    <div class="searchcontainer">
+    <% searchedCategory.forEach(function(listing) { %>
+    <div class="card searchedcard" style="width: 22rem; max-height: 24rem;">
+        <a href="/list/view/<%= listing._id %>">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image" style="height: 12rem; object-fit: cover;">
+        </a>
+      
+        <div class="card-body">
+             <h5 class="card-title"><%= listing.title %></h5>
+            <p class="card-text"><%= listing.description %></p>
+            <div class="d-flex justify-content-between">
+              <div class="listing-price">
+                &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+              </div>
+              <div class="taxinfo">
+                Tax (18%): &#8377; <%= (listing.price * 0.18).toFixed(2) %>
+              </div>
+            </div>
+            <div class="searchedCategory mt-2 text-muted">
+                <%= listing.location %>, <%= listing.country %>
+            </div>
+          <p class="card-text"></p>
+        </div>
+    </div>
+    <% }); %>
+</div>
+</body>
+
+<style>
+    .searchcontainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: baseline;
+        margin-top: 3rem;
+        
+    }
+    .searchedcard {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+    }
+
+    .searchedcard .card-body {
+        font-size: 0.9rem;
+    }
+
+    .searchedcard .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .searchedcard .card-text {
+        font-size: 0.85rem;
+        color: #555;
+    }
+
+    .searchedcard .listing-price {
+        font-weight: bold;
+        color: #ff5a5f;
+    }
+
+    .searchedcard .taxinfo {
+        font-size: 0.8rem;
+        color: #999;
+    }
+
+    .searchedcard .searchedCategory {
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+</style>

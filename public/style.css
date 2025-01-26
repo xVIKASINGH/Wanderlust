@@ -1,0 +1,483 @@
+/* body{
+   /* font-family:Arial, Helvetica, sans-serif !important; */
+
+/* navbar  */ 
+
+     .navbar{
+        height: 5rem;
+    }
+    .fa-compass{
+        color: #fe424d;
+        font-size: 1.75rem;
+    }
+
+    /* Base navbar styling */
+.navbar {
+    background-color: #ffffff; /* White background for a clean look */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Navbar brand */
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Navbar links */
+  .navbar-nav .nav-link {
+    font-size: 16px;
+    color: #333333;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ff5a5f; /* Airbnb’s main accent color */
+    background-color: rgba(255, 90, 95, 0.1);
+    border-radius: 5px;
+  }
+  
+  /* Active link color */
+  .navbar-nav .nav-link.active {
+    color: #ff5a5f;
+  }
+  
+  /* Dropdown menu */
+  .navbar-nav .nav-item.dropdown .nav-link {
+    color: #333333;
+  }
+  
+  .navbar-nav .nav-item.dropdown .nav-link:hover {
+    color: #ff5a5f;
+  }
+  
+  /* Search bar styling */
+  .search-bar {
+    width: 250px;
+    border-radius: 50px; /* Rounded corners like Airbnb's search bar */
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #ff5a5f; /* Highlight border on focus */
+    outline: none;
+  }
+  
+  /* Navbar toggle button for mobile */
+  .navbar-toggler {
+    border-color: #ddd;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #333;
+  }
+  
+  /* Align navbar items to the right */
+  .ms-auto {
+    margin-left: auto;
+  }
+  
+
+/* styling for footer */
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ff5a5f; /* Airbnb’s accent color */
+  }
+  
+  .footer .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .footer .social-icon {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer .social-icon:hover {
+    color: #ff5a5f; /* Airbnb’s accent color */
+  }
+  
+  .footer .row {
+    margin-bottom: 30px;
+  }
+  
+  .footer .col-md-4 {
+    margin-bottom: 30px;
+  }
+  
+  .footer .text-center {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 767px) {
+    .footer .row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer .col-md-4 {
+      margin-bottom: 20px;
+    }
+  }
+
+ 
+  .container{
+    margin-top: 2rem;
+  }
+  .allbtn{
+    margin-top: 2rem;
+  }
+  
+  .listimg{
+    border-radius: 1rem;
+  }
+
+
+  /* adding styling to view page */
+
+ /* Listing Detail Page Styles */
+.listing-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .listing-header .listing-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .listing-header .listing-location {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .listing-image-container {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .listing-image {
+    width: 80%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .listing-details {
+    margin-bottom: 50px;
+  }
+  
+  .listing-details h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .listing-description {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .listing-priceforview {
+    font-size: 1.5rem;
+    color: #f36f6f;
+    font-weight: 700;
+  }
+  
+  .listing-location {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  
+  .back-link {
+    text-align: center;
+    margin-top: 20px !important;
+  }
+  .backbtn{
+    margin-bottom: 20px;
+  }
+  
+  .back-btn {
+    padding: 10px 20px;
+    background-color: #f36f6f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #e15d5d;
+  }
+  
+  @media (max-width: 768px) {
+    .listing-header .listing-title {
+      font-size: 2rem;
+    }
+  
+    .listing-header .listing-location {
+      font-size: 1rem;
+    }
+  
+    .listing-image-container {
+      margin-bottom: 20px;
+    }
+  
+    .listing-details h2 {
+      font-size: 1.5rem;
+    }
+  
+    .listing-price {
+      font-size: 1.2rem;
+    }
+  }
+  
+
+  /* Update page styling */
+  
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group1 {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 150px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0084ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005fcc;
+  }
+  
+  .back-btn {
+    text-align: center;
+    margin-bottom: 20px !important;
+    
+  }
+  
+  .back-btn a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    
+  }
+  .back-btn {
+    text-align: center;
+    margin-bottom: 20px !important;
+    
+  }
+  
+  .back-btn a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    
+  }
+  .btnforupdate {
+    text-align: center;
+    margin-bottom: 20px !important;
+    
+  }
+  
+  .btnforupdate a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    
+  }
+
+/* create page styling */
+
+
+/* Create New Listing Form Styling */
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-field2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-field2 label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .form-field2 input,
+  .form-field2 textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-field2 input:focus,
+  .form-field2 textarea:focus {
+    border-color: #f36f6f;
+    outline: none;
+  }
+  
+  .form-field2 textarea {
+    resize: vertical;
+  }
+  
+  .form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #f36f6f;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-submit-btn:hover {
+    background-color: #e15d5d;
+  }
+  
+  .cancel-btn02 {
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none !important;
+  }
+  
+  .cancel-link {
+    color: #555;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .cancel-link:hover {
+    color: #f36f6f;
+  }
+  
+  @media (max-width: 768px) {
+    .container2 {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .form-field2 input,
+    .form-field2 textarea {
+      font-size: 0.9rem;
+    }
+  
+    .form-submit-btn {
+      font-size: 1rem;
+    }
+  }
+   

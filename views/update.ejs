@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+  <div class="containerforupdate">
+    <h1>Edit Listing</h1>
+    <form action="/list/update/<%= listing._id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+      <div class="form-group1">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="<%= listing.title %>" required>
+      </div>
+      
+      <div class="form-group1">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required><%= listing.description %></textarea>
+      </div>
+      
+      <div class="form-group1">
+        <label for="price">Price (INR)</label>
+        <input type="number" id="price" name="price" value="<%= listing.price %>" required>
+      </div>
+
+      <div class="form-group1">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" value="<%= listing.location %>" required>
+      </div>
+
+      <div class="form-group1">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" value="<%= listing.country %>" required>
+      </div>
+      <div class="mb-3">
+        Original image <br/>
+        <img src="<%= orginalimageurl %>" alt="Original Image" width="200" height="200">
+      </div>
+
+      <div class="form-group1">
+        <label for="image">Upload New Image (optional)</label>
+        <input type="file" id="image" name="imageUrl">
+    </div>
+    
+
+      <button type="submit" class="btnforupdate">Update Listing</button>
+    </form>
+
+    <div class="back-btn">
+      <a href="/list">Go Back to Listing</a>
+    </div>
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,172 @@
+<style>
+  /* Sidebar styling */
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    background-color: #121212;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: #fe424d;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2rem;
+    margin-left: 50px;
+  }
+
+  /* Adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+    .navbar-collapse {
+      display: none !important;
+    }
+
+    .sidebar-toggler {
+      display: inline-block;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #121212;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .sidebar-toggler {
+      display: none;
+    }
+  }
+  .searchbtn{
+   background-color: #fe424d;
+   color: white;
+   border: none;
+  border-radius: 1.5rem;
+   margin-left: 0.2rem;
+   width: 50px;
+   height: 2.5rem;
+  }
+  .searchform{
+   margin-left: 6rem;
+   width: 400px;
+  } 
+  .searchinp{
+    width: 100%;
+    border-radius: 2rem;
+  }
+ 
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <span class="sidebar-toggler" onclick="openSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </span>
+    <a class="navbar-brand" href="/list">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link explore" href="/list">Explore</a>
+        </li>
+      </ul>
+      <form
+        class="d-flex searchform"
+        role="search"
+        method="post"
+        id="searchForm"
+      >
+        <input
+          class="form-control me-2 searchinp"
+          type="search"
+          placeholder="Search Destinations"
+          aria-label="Search"
+          list="destinationSuggestions"
+          id="searchInput"
+          name="destination"
+          required
+        />
+        <datalist id="destinationSuggestions">
+          <option value="mountains">
+          <option value="beach">
+          <option value="topofworld">
+        </datalist>
+        <button
+          class="btn btn-outline-success searchbtn"
+          type="button"
+          onclick="submitForm()"
+        >
+          <i class="fa-solid fa-magnifying-glass searchicon"></i>
+        </button>
+      </form>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/list/create">Add your Property</a>
+        </li>
+        <li class="nav-item">
+          <% if (!currentUser) { %>
+          <a class="nav-link btn btn-outline-success px-4 py-2" href="/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success px-4 py-2" href="/login">Login</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success px-4 py-2" href="/logout">Log Out</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+  <a href="/list">Explore</a>
+  <a href="/list/create">Add your Property</a>
+  <% if (!currentUser) { %>
+  <a href="/signup">Signup</a>
+  <a href="/login">Login</a>
+  <% } else { %>
+  <a href="/logout">Log Out</a>
+  <% } %>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById("mySidebar").style.width = "250px";
+  }
+
+  function closeSidebar() {
+    document.getElementById("mySidebar").style.width = "0";
+  }
+
+  function submitForm() {
+    const category = document.getElementById("searchInput").value.trim();
+    const validCategories = ["mountains", "beach", "topofworld"];
+    if (!validCategories.includes(category.toLowerCase())) {
+      alert("Invalid category selected.");
+      return;
+    }
+    const form = document.getElementById("searchForm");
+    form.action = `/search/${category}`;
+    form.submit();
+  }
+</script>

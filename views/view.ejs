@@ -1,0 +1,139 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+  <div class="container">
+    
+    <div class="listing-header">
+      <h1 class="listing-title"><%= listing.title %></h1>
+      <p class="listing-location"><%= listing.location %>, <%= listing.country %></p>
+    </div>
+
+
+    <div class="listing-image-container" style="width: 100%;">
+      <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="listing-image">
+    </div>
+
+    <!-- Details Section -->
+    <div class="listing-details">
+      <h5 class="card-title">
+        <% listing.owner.forEach((user) => { %>
+          Owner: <%= user.username %>
+        <% }); %>
+      </h5>
+      <h2>Description</h2>
+
+      <p class="listing-description"><%= listing.description %></p>
+
+      <h2>Details</h2>
+      <p class="listing-priceforview"> &#8377; <%= listing.price %> / night</p>
+      <p class="listing-location">Location: <%= listing.location %>, <%= listing.country %></p>
+      <% if (currentUser && listing.owner.length > 0 && currentUser._id.equals(listing.owner[0]._id)) { %>
+      <div class="container">
+        <a href="/list/edit/<%= listing._id %>" class="btn btn-warning mt-2 allbtn">Edit</a>
+        <form action="/list/delete/<%= listing._id %>?_method=DELETE" method="POST" style="display: inline-block;">
+          <button type="submit" class="btn btn-danger mt-2 allbtn">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+
+    
+    <% if(currentUser) { %>
+    <div class="review-section">
+      <h3>Leave a Review</h3>
+      <form action="/list/<%= listing._id %>/review" method="POST">
+      
+        <!-- Star Rating -->
+        <div class="star-rating" id="starRating" style="display: flex; font-size: 2rem; cursor: pointer;">
+          <i class="fa fa-star" data-value="1" style="color: gray;"></i>
+          <i class="fa fa-star" data-value="2" style="color: gray;"></i>
+          <i class="fa fa-star" data-value="3" style="color: gray;"></i>
+          <i class="fa fa-star" data-value="4" style="color: gray;"></i>
+          <i class="fa fa-star" data-value="5" style="color: gray;"></i>
+        </div>
+        
+        
+        <input type="hidden" id="rating" name="review[rating]" value="1">
+
+       
+        <div id="ratingNumber" style="font-size: 1.2rem; margin-top: 10px;">Rating: 0</div>
+        
+        
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea id="comment" name="review[comment]" rows="4" required class="form-control"></textarea>
+        </div>
+       
+        <button type="submit" class="btn btn-success" style="width: 10%; margin-top: 10px;">Add</button>
+      </form>
+    </div>
+    <% } %>
+
+    <hr>
+    
+   
+    <h3>Reviews</h3>
+    <div class="card">
+      <div class="card-body">
+        <% listing.reviews.forEach(review => { %>
+        <div class="review">
+          <h4 class="card-title">@<%= review.author?.username || "Betaajbadshah" %></h4>
+          <h2 class="card-subtitle mb-2 text-body-secondary">
+            <% for (let i = 1; i <= 5; i++) { %>
+              <i class="fa fa-star" style="color: <%= i <= review.rating ? 'gold' : 'gray' %>;"></i>
+            <% } %>
+          </h2>
+          <p class="card-text"><%= review.comment %></p>
+        </div>
+       
+        <form class="mb-3" method="POST" action="/list/<%= listing._id %>/review/<%= review._id %>?_method=DELETE">
+          <button type="submit" class="btn btn-dark dltbtn">Delete</button>
+        </form>
+        <hr>
+        <% }) %>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="back-link backbtn">
+      <a href="/list" class="back-btn">Back to Listings</a>
+    </div>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.fa-star');
+    const ratingNumber = document.getElementById('ratingNumber');
+    const hiddenRatingInput = document.getElementById('rating');
+
+    
+    function handleRating(event) {
+      const rating = event.target.getAttribute('data-value');
+
+
+      stars.forEach(star => {
+        if (star.getAttribute('data-value') <= rating) {
+          star.style.color = 'gold'; 
+        } else {
+          star.style.color = 'gray'; 
+        }
+      });
+
+     
+      ratingNumber.textContent = `Rating: ${rating}`;
+
+      hiddenRatingInput.value = rating;
+    }
+
+    stars.forEach(star => {
+      star.addEventListener('click', handleRating);
+    });
+  </script>
+</body>
+</html>
+
+<style>
+  .dltbtn{
+    width: 100px;
+    margin-top: 10px;
+  }
+</style>

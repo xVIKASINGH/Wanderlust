@@ -1,0 +1,65 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+  <div class="container2">
+    <h1>Create a New Listing</h1>
+    <form action="/list" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+      <!-- Title Field -->
+      <div class="form-field2">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter the title" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <!-- Description Field -->
+      <div class="form-field2">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" placeholder="Enter the description" required></textarea>
+      </div>
+
+        <!-- Image URL Field -->
+        <div class="form-field2">
+          <label for="imageUrl">Upload Listing Image</label>
+          <input type="file" id="imageUrl" name="imageUrl" required>
+
+        </div>
+        <div class="form-field2">
+          <label for="category">Category</label>
+          <select id="country" name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="mountains">Mountains</option>
+            <option value="beach">Beach</option>
+            <option value="topofworld">Top of the World</option>
+          </select>
+        </div>
+      <!-- Price Field -->
+      <div class="form-field2">
+        <label for="price">Price (per night)</label>
+        <input type="number" id="price" name="price" placeholder="Enter the price" required>
+      </div>
+
+      <!-- Location Field -->
+      <div class="form-field2">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="Enter the location" required>
+      </div>
+    
+      
+
+      <!-- Country Field -->
+      <div class="form-field2">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" placeholder="Enter the country" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="form-submit-btn">Create Listing</button>
+    </form>
+    <div class="cancel-btn02">
+      <a href="/list">Cancel</a>
+    </div>
+  </div>
+
+</body>
+</html>
